@@ -1,0 +1,70 @@
+﻿<Window x:Class="ProyectoDiseño.GestionProductos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoDiseño"
+        mc:Ignorable="d"
+        Title="GestionProductos" Height="650" Width="850">
+    <Border CornerRadius="10"
+                BorderThickness="2"
+                BorderBrush="Goldenrod"
+>
+
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                <GradientStop Color="#060531" Offset="0"/>
+                <GradientStop Color="#1b1448" Offset="0.75"/>
+            </LinearGradientBrush>
+        </Border.Background>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Nombre:" Margin="5"
+                           Foreground="LightGray"
+                           FontFamily="Montserrat"
+                           FontWeight="Medium"
+                           FontSize="12"
+                           TextAlignment="Center"
+                           TextWrapping="Wrap"></TextBlock>
+                <TextBox x:Name="txtNombre" Width="200" Margin="5" RenderTransformOrigin="0.506,1.778"/>
+                <TextBlock Text="Descripción:" Margin="5"
+                           Foreground="LightGray"
+                           FontFamily="Montserrat"
+                           FontWeight="Medium"
+                           FontSize="12"
+                           TextAlignment="Center"
+                           TextWrapping="Wrap"></TextBlock>
+                <TextBox x:Name="txtDescripcion" Width="200" Margin="5"/>
+                <TextBlock Text="Categoría:" Margin="5"
+                           Foreground="LightGray"
+                           FontFamily="Montserrat"
+                           FontWeight="Medium"
+                           FontSize="12"
+                           TextAlignment="Center"
+                           TextWrapping="Wrap"></TextBlock>
+                <ComboBox x:Name="cmbCategoria" Width="120" Margin="5">
+                    <ComboBoxItem Content="Bebidas"/>
+                    <ComboBoxItem Content="Frutas"/>
+                    <ComboBoxItem Content="Embutidos"/>
+                    <ComboBoxItem Content="Lácteos"/>
+                </ComboBox>
+                <Button x:Name="btnAgregar" Content="Agregar" Click="btnAgregar_Click" Margin="5"></Button>
+            </StackPanel>
+            <ListView Grid.Row="1" x:Name="lvProductos" Margin="10" SelectionChanged="lvProductos_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Código" DisplayMemberBinding="{Binding idProducto}"/>
+                        <GridViewColumn Header="Nombre" DisplayMemberBinding="{Binding nombreProducto}"/>
+                        <GridViewColumn Header="Descripción" DisplayMemberBinding="{Binding descripcionProducto}"/>
+                        <GridViewColumn Header="Categoría" DisplayMemberBinding="{Binding categoriaProducto}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+    </Border>
+</Window>

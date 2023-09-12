@@ -1,0 +1,151 @@
+﻿<Window x:Class="ProyectoDiseño.LandingPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoDiseño"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+
+        mc:Ignorable="d"
+        Title="Purchases" Height="580" Width="810"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        MouseDown="Window_MouseDown">
+
+    <Border CornerRadius="10"
+                BorderThickness="2"
+                BorderBrush="Goldenrod">
+
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                <GradientStop Color="#060531" Offset="0"/>
+                <GradientStop Color="#1b1448" Offset="0.75"/>
+            </LinearGradientBrush>
+        </Border.Background>
+
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="8"/>
+
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="LANDING PAGE" Foreground="DarkGray"  
+                           FontSize="13" FontFamily="Montserrat"
+                           Grid.Column="0"
+                           VerticalAlignment="Center"
+                           Margin="14,8,0,0"/>
+                <Button Name="bnt_Minimize"
+                        BorderThickness="0"
+                        Foreground="White"
+                        FontSize="16"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        Grid.Column="1"
+                        Click="bnt_Minimize_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#28AEED"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#278BEF"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Width="19" Height="19" >
+                                <Ellipse Fill="{TemplateBinding Background}" />
+                                <TextBlock Text="-" Foreground="White" 
+                                            HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+
+                <Button Name="btnExit"
+                        BorderThickness="0"
+                        Content="x"
+                        Foreground="White"
+                        FontSize="16"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        Grid.Column="2"
+                        Click="btn_Exit_Click">
+
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#DA34AE"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="DarkRed"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Width="19" Height="19" >
+                                <Ellipse Fill="{TemplateBinding Background}" />
+                                <TextBlock Text="x" Foreground="White" 
+                                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+
+            <Image Width="130" Height="121" Source="/Image/FastFood.png" Margin="340,0,336,425" Grid.Row="1" RenderTransformOrigin="0.519,0.405" />
+            <TextBlock Text="We pride ourselves in being the best grocery store in the country. With a wide range of high-quality products and exceptional customer service we strive to provide an unparalleled shopping experience for our customers."
+                           Foreground="LightGray"
+                           FontFamily="Montserrat"
+                           FontWeight="Medium"
+                           FontSize="12"
+                           TextAlignment="Center"
+                           TextWrapping="Wrap" Width="250" Margin="278,106,278,0" Grid.Row="1" Height="89" VerticalAlignment="Top"/>
+            <RadioButton Style="{StaticResource menuButton}" Height="100" Margin="496,302,184,144" Checked="RadioButton_Checked" Grid.Row="1">
+                <RadioButton.Background>
+                    <LinearGradientBrush EndPoint="0,0" StartPoint="0,1.07">
+                        <GradientStop Color="#FF060531"/>
+                        <GradientStop Color="#1b1448" Offset="1"/>
+                    </LinearGradientBrush>
+                </RadioButton.Background>
+                <StackPanel Orientation="Horizontal">
+                    <fa:IconImage Margin="0,0,0,17" Icon="Person" Foreground="White" Style="{StaticResource ResourceKey=menuButtonIcon}"/>
+
+                    <TextBlock Margin="5,0,0,11" FontSize="20" Text="Customer" Style="{StaticResource ResourceKey=menuButtonText}"/>
+                </StackPanel>
+            </RadioButton>
+            <RadioButton Style="{StaticResource menuButton}" Height="100" Margin="203,302,477,144" Checked="Duenio_Checked" Grid.Row="1">
+                <RadioButton.Background>
+                    <LinearGradientBrush EndPoint="0,0" StartPoint="0,1.07">
+                        <GradientStop Color="#FF060531"/>
+                        <GradientStop Color="#1b1448" Offset="1"/>
+                    </LinearGradientBrush>
+                </RadioButton.Background>
+                <StackPanel Orientation="Horizontal" Width="106">
+                    <fa:IconImage Margin="0,0,0,17" Icon="Shop" Foreground="White" Style="{StaticResource ResourceKey=menuButtonIcon}"/>
+                    <TextBlock TextAlignment="Center" Margin="10,0,0,11" FontSize="20" Text=" Owner" Style="{StaticResource ResourceKey=menuButtonText}"/>
+                </StackPanel>
+            </RadioButton>
+            <TextBlock Foreground="White" FontFamily="Montserrat" FontSize="24" HorizontalAlignment="Center" Margin="0,217,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Select a module!" VerticalAlignment="Top" FontWeight="Bold"/>
+        </Grid>
+    </Border>
+</Window>

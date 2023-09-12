@@ -1,0 +1,25 @@
+﻿<Window x:Class="ProyectoDiseño.EditProductWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoDiseño"
+        mc:Ignorable="d"
+        Title="EditProductWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Nombre:"/>
+            <TextBox x:Name="txtNombre"/>
+            <TextBlock Text="Descripción:"/>
+            <TextBox x:Name="txtDescripcion"/>
+            <TextBlock Text="Categoría:"/>
+            <ComboBox x:Name="cmbCategoria">
+                <ComboBoxItem Content="Bebidas"/>
+                <ComboBoxItem Content="Frutas"/>
+                <ComboBoxItem Content="Embutidos"/>
+                <ComboBoxItem Content="Lácteos"/>
+            </ComboBox>
+            <Button Content="Guardar" Click="Guardar_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
